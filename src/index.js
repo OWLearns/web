@@ -9,6 +9,7 @@ import LoginPage from './Features/Login/LoginPage';
 import HomePage from './Features/Home/HomePage';
 import RegisterPage from './Features/Register/RegisterPage';
 import VerificationPage from './Features/Verification/VerificationPage';
+import ProfilePage from './Features/Profile/ProfilePage';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/verification",
     element: <VerificationPage/>,
+  },
+  {
+    path: "/profile",
+    element: <ProfilePage/>,
   }
 ]);
 
