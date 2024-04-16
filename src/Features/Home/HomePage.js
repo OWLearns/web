@@ -6,8 +6,8 @@ import Community from "../../Assets/community.png"
 import start from "../../Assets/start.png"
 import CheckUserLoggedIn  from "../../Hooks/CheckUser"
 import { useEffect, useState } from "react"
-import LogOut from '../../Hooks/LogOut'
 import Navbar from '../../Components/Navbar/Navbar.js'
+import Footer from '../../Components/Footer/Footer.js'
 
 export default function TestPage(){
 
@@ -33,7 +33,6 @@ export default function TestPage(){
             <>
                 <Navbar/>
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
-                    <button onClick={LogOut}>Log Out</button>
                     <div className="lg:flex lg:flex-row-reverse items-center justify-between mt-16">
                         <img src={illustration} alt='a' className="mb-8 w-72 mx-auto lg:mx-0 lg:w-96 lg:scale-125"/>
                         <div className="lg:w-1/2">
@@ -119,6 +118,8 @@ export default function TestPage(){
                         </div>
                     </div>
                 </div>
+                <Footer />
+
             </>
         )
     }

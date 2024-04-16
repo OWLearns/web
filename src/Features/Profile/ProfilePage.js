@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Navbar from '../../Components/Navbar/Navbar.js'
 import Potrait from "../../Assets/potrait.png"
 import Web from "../../Assets/web.png"
+import Footer from "../../Components/Footer/Footer.js"
 
 export default function ProfilePage(){
 
@@ -86,7 +87,7 @@ export default function ProfilePage(){
                             </div>
                         </div>
                     </div>
-                    <div className="mt-28 p-20 py-14 border-2 border-gray-400 rounded-3xl">
+                    <div className="mt-28 p-20 py-14 border-2 border-gray-400 rounded-3xl mb-5">
                         <h1 className="text-2xl font-bold">Course Completed</h1>
                         <div className="flex mt-10 gap-5">
                             <div className="flex flex-col items-center">
@@ -100,6 +101,7 @@ export default function ProfilePage(){
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </>
         )
     }
