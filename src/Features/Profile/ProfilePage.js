@@ -28,7 +28,7 @@ export default function ProfilePage(){
         return (
             <>
                 <Navbar/>
-                <div className="bg-OWL-base p-6 lg:px-24">
+                <div className="bg-OWL-base p-6 lg:px-24 xl:px-44">
                     <div className="mt-20 p-32 py-20 relative">
                         <div className="absolute bg-gradient-to-br from-OWL-dark-blue to-OWL-mid-blue w-full top-0 left-0 h-52 rounded-3xl"/>
                         <div className="z-10 relative flex justify-between">

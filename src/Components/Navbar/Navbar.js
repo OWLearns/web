@@ -12,6 +12,7 @@ export default function Navbar() {
     return (
         <>
             <div className="  top-0 left-0  sticky bg-OWL-base w-full mt-2 z-50">
+                <div className="bg-gradient-to-b from-OWL-base to-transparent h-4 w-full absolute top-full"/>
                 <div className="md:px-10 py-4 px-7 md:flex justify-between items-center">
                     <div className="flex text-2xl cursor-pointer items-center gap-2">
                         <span className="font-bold">OWL.</span>
