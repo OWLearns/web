@@ -10,6 +10,7 @@ import HomePage from './Features/Home/HomePage';
 import RegisterPage from './Features/Register/RegisterPage';
 import VerificationPage from './Features/Verification/VerificationPage';
 import ProfilePage from './Features/Profile/ProfilePage';
+import CoursesPage from './Features/Course/CoursesPage';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage/>,
-  }
+  },
+  {
+    path: "/courses",
+    element: <CoursesPage/>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -11,7 +11,7 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="  top-0 left-0  sticky bg-OWL-base w-full mt-2 z-50">
+            <div className="  top-0 left-0  sticky bg-OWL-base w-full mt-2 z-50 ">
                 <div className="md:px-10 py-4 px-7 md:flex justify-between items-center">
                     <div className="flex text-2xl cursor-pointer items-center gap-2">
                         <span className="font-bold">OWL.</span>
@@ -27,7 +27,7 @@ export default function Navbar() {
                                 Home
                             </li>
                         </Link>
-                        <Link to={"/learning"}>
+                        <Link to={"/Courses"}>
                             <li className="my-7 md:my-0 md:ml-8">
                                 Learning
                             </li>
