@@ -44,7 +44,6 @@ export default function ProfilePage() {
 
     }
 
-
     useEffect(() => {
         const check = async () => {
             const isLoggedIn = await CheckUserLoggedIn();
@@ -68,12 +67,7 @@ export default function ProfilePage() {
                         <div className="absolute bg-gradient-to-br from-OWL-dark-blue to-OWL-mid-blue w-full top-0 left-0 h-52 rounded-3xl"/>
                         <div className="z-10 relative flex justify-between">
                             <div className="">
-                               {
-                                userData.avatar ? 
                                     <img src={userData.avatar} className="rounded-full h-52 border-4 border-OWL-base" />
-                                    :
-                                    <img src={Potrait} className="rounded-full h-52 border-4 border-OWL-base" />
-                               }
                                 <div className="mt-4">
                                     <h1 className="text-2xl font-semibold">{userData.username}</h1>
                                     <p className="mt-2">No 1 Award Achiever</p>

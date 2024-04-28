@@ -108,7 +108,7 @@ export default function CoursePage(){
                         <h1 className="text-xl font-bold lg:text-3xl">FrontEnd - CSS</h1>
                         <div className="flex flex-col lg:flex-col-reverse mt-8 lg:mt-0">
                             <div className="flex flex-wrap justify-around gap-4 gap-y-8">
-                                <Cards text="yessir" img={code}/>
+                                <Cards text="introduction to HTML" img={code}/>
                                 <Cards text="yessir" img={code}/>
                                 <Cards text="yessir" img={code}/>
                                 <Cards text="yessir" img={code}/>
