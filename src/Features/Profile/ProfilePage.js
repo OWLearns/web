@@ -12,8 +12,6 @@ export default function ProfilePage() {
     const [userData, setUserData] = useState({});
     useEffect(() => {
         fetchProfileData();
-        
-
     }, []);
     
     const fetchProfileData = async () => {
@@ -64,12 +62,12 @@ export default function ProfilePage() {
                 <Navbar/>
                 <div className="bg-OWL-base p-6 lg:px-24 xl:px-44">
                     <div className="mt-20 p-32 py-20 relative">
-                        <div className="absolute bg-gradient-to-br from-OWL-dark-blue to-OWL-mid-blue w-full top-0 left-0 h-52 rounded-3xl"/>
+                        <div className="absolute bg-gradient-to-br from-OWL-dark-blue to-OWL-mid-blue w-full top-0 left-0 h-52 rounded-3xl  "/>
                         <div className="z-10 relative flex justify-between">
                             <div className="">
-                                    <img src={userData.avatar} className="rounded-full h-52 border-4 border-OWL-base" />
+                                    <img src={Potrait} className="rounded-full h-52 border-4 border-OWL-base" />
                                 <div className="mt-4">
-                                    <h1 className="text-2xl font-semibold">{userData.username}</h1>
+                                    <h1 className="text-2xl font-semibold">Ambatukam</h1>
                                     <p className="mt-2">No 1 Award Achiever</p>
                                     <p className="mt-1">Jakarta, Indonesia</p>
                                 </div>

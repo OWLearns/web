@@ -49,14 +49,16 @@ export default function Navbar() {
                     </li>
                     {isLoggedIn ? (
                         <Link to={"/profile"}>
-                        <li className="my-7 md:my-0 md:ml-8">
-                            <img src={potrait}  className="h-8 w-8 rounded-full" />
-                        </li>
+                            <li className="my-7 md:my-0 md:ml-8">
+                                <img src={potrait} className="h-8 w-8 rounded-full" />
+                            </li>
                         </Link>
                     ) : (
-                        <li className="my-7 md:my-0 md:ml-8">
-                            <button className="btn bg-orange-500 px-5 py-2 rounded-full md:static">Get Started</button>
-                        </li>
+                        <Link to={"/login"}>
+                            <li className="my-7 md:my-0 md:ml-8">
+                                <button className="btn bg-orange-500 px-5 py-2 rounded-full md:static">Get Started</button>
+                            </li>
+                        </Link>
                     )}
                 </ul>
             </div>
