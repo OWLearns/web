@@ -1,4 +1,4 @@
-import illustration from "../../Assets/Illustration.png"
+import learn from "../../Assets/learn.png"
 import Web from "../../Assets/web.png"
 import SearchBar from "../../Components/SearchBar/SearchBar"
 import Mentor from "../../Assets/mentor.png"
@@ -8,8 +8,9 @@ import CheckUserLoggedIn  from "../../Hooks/CheckUser"
 import { useEffect, useState } from "react"
 import Navbar from '../../Components/Navbar/Navbar.js'
 import Footer from '../../Components/Footer/Footer.js'
+import { Link } from "react-router-dom"
 
-export default function TestPage(){
+export default function LearnPage(){
 
     const [isLoading, setLoading] = useState(true);
 
@@ -34,36 +35,14 @@ export default function TestPage(){
                 {/* <Navbar/> */}
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
                     <div className="lg:flex lg:flex-row-reverse items-center justify-between mt-16">
-                        <img src={illustration} alt='a' className="mb-8 w-72 mx-auto lg:mx-0 lg:w-96 lg:scale-125"/>
+                        <img src={learn} alt='a' className="mb-8 w-72 mx-auto lg:mx-0 lg:w-96 lg:scale-125"/>
                         <div className="lg:w-1/2">
-                            <p className="text-md pl-1 lg:text-xl tracking-widest text-OWL-dark-blue font-semibold">INTRODUCING OWL.</p>
-                            <h3 className="text-xl font-bold pl-1 mt-4 lg:text-4xl">Eksplorasi Pembelajaran Terbaik di Dunia Digital!</h3>
-                            <p className="text-sm mt-4 pl-1 lg:text-lg lg:mt-8">Buka Potensi Penuh Keterampilan Digital dengan Kursus Tentang Pengembangan Web, Mobile, Desain UI/UX, dan Manajemen Proyek.</p>
+                            <p className="text-md pl-1 lg:text-xl tracking-widest text-OWL-dark-blue font-semibold">LEARNING</p>
+                            <h3 className="text-xl font-bold pl-1 mt-4 lg:text-4xl">Master IT Skills, Build a Portfolio and Be Ready For a Career</h3>
+                            <p className="text-sm mt-4 pl-1 lg:text-lg lg:mt-8">Auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar</p>
                             <div className="mt-6 lg:mt-20">
                                 <SearchBar/>
                             </div>
-                        </div>
-                    </div>
-                    <div className="bg-OWL-dark-blue flex flex-col lg:flex-row lg:justify-between gap-8 text-white p-6 mt-10 rounded-2xl lg:mt-44 lg:p-8 lg:pl-10">
-                        <div className="flex flex-col gap-3 max-w-72 self-center lg:py-8">
-                            <h2 className="lg:text-3xl">
-                                <span className="font-semibold">OWL.</span>
-                                <br/>
-                                Program
-                            </h2>
-                            <p className="text-xs lg:text-base">Dirancang untuk mengembangkan keterampilan Anda di dunia digital</p>
-                        </div>
-                        <div className="flex gap-3 justify-between items-center lg:flex-col lg:w-min lg:p-8 lg:hover:bg-OWL-mid-blue lg:rounded-3xl">
-                            <h2 className="text-sm lg:text-xl">Creative Thinking</h2>
-                            <p className="text-xs text-nowrap lg:text-base">Learn more +</p>
-                        </div>
-                        <div className="flex gap-3 justify-between items-center lg:flex-col lg:w-min lg:p-8 lg:hover:bg-OWL-mid-blue lg:rounded-3xl">
-                            <h2 className="text-sm lg:text-xl">Gamification</h2>
-                            <p className="text-xs text-nowrap lg:text-base">Learn more +</p>
-                        </div>
-                        <div className="flex gap-3 justify-between items-center lg:flex-col lg:w-min lg:p-8 lg:hover:bg-OWL-mid-blue lg:rounded-3xl">
-                            <h2 className="text-sm lg:text-xl">Interactive Learning</h2>
-                            <p className="text-xs text-nowrap lg:text-base">Learn more +</p>
                         </div>
                     </div>
                     <div className="mt-14 flex flex-col lg:mt-40 lg:items-center">
@@ -72,28 +51,28 @@ export default function TestPage(){
                         <p className="font-normal text-xs lg:mt-2 lg:text-xl">Dari Pengembangan Web hingga Applikasi Mobile, Desain UI/UX, dan Manajemen Proyek</p>
                         <div className="flex flex-col gap-4 mt-4 lg:flex-row lg:mt-16 lg:gap-12">
                             <div className="flex gap-2 lg:gap-12 lg:w-1/2">
-                                <div className="w-1/2 flex flex-col">
+                                <Link className="w-1/2 flex flex-col" to={"/learn/web-development"}>
                                     <img src={Web} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">Web Development</p>
                                     <p className="text-xs lg:text-sm">Dasar HTML, CSS dan JavaScript untuk pengembangan web</p>
-                                </div>
-                                <div className="w-1/2 flex flex-col">
+                                </Link>
+                                <Link className="w-1/2 flex flex-col" to={"/learn/mobile-development"}>
                                     <img src={Web} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">Mobile Development</p>
                                     <p className="text-xs lg:text-sm">Pengembangan aplikasi responsif untuk Android dan iOS</p>
-                                </div>
+                                </Link>
                             </div>      
                             <div className="flex gap-2 lg:gap-12 lg:w-1/2">
-                                <div className="w-1/2 flex flex-col">
+                                <Link className="w-1/2 flex flex-col" to={"/learn/ui-ux"}>
                                     <img src={Web} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">UI/UX Design </p>
                                     <p className="text-xs lg:text-sm">Mobile Development Pengembangan aplikasi responsif untuk Android dan iOS</p>
-                                </div>
-                                <div className="w-1/2 flex flex-col">
+                                </Link>
+                                <Link className="w-1/2 flex flex-col" to={"/learn/project-manager"}>
                                     <img src={Web} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">Project Manager</p>
                                     <p className="text-xs lg:text-sm">Keterampilan manajemen proyek dengan metodologi Agile</p>
-                                </div>
+                                </Link>
                             </div> 
                         </div>
                     </div>
