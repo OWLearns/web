@@ -8,7 +8,6 @@ import Footer from "../../Components/Footer/Footer.js";
 import supabase from "../../Middleware/Supabase";
 import { useLoaderData, Link } from "react-router-dom";
 
-
 export default function ProfilePage() {
 
     const [isLoading, setLoading] = useState(true);
@@ -63,11 +62,11 @@ export default function ProfilePage() {
                                         <p>Following</p>
                                     </div>
                                 </div>
-                                <Link to = "/editprofile">
+
+                                <Link to="/editprofile">
+
                                 <button className="mt-4 border-2 border-OWL-light-blue text-OWL-light-blue p-2 px-4 rounded-lg">Edit Profile</button>
-                                
                                 </Link>
-                               
                             </div>
                         </div>
                     </div>
@@ -140,7 +139,6 @@ export const fetchProfileData = async () => {
       });
       if (response.ok) {
           const data = await response.json();
-        console.log(data)
           return data;
         //   return data;
 

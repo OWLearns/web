@@ -8,12 +8,14 @@ import CheckUserLoggedIn from "../../Hooks/CheckUser";
 import supabase from "../../Middleware/Supabase";
 import { useLoaderData } from "react-router-dom";
 
+
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const data = useLoaderData();
     // const data = info.profile[0];
     console.log(data)
+
 
     useEffect(() => {
         const checkLoggedIn = async () => {
