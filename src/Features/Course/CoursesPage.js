@@ -25,7 +25,7 @@ export default function CoursePage() {
     }, [])
 
     const fetchCourseData = async () => {
-        const { data, error } = await supabase.from('courses').select('*').eq('id', 1);
+        const { data, error } = await supabase.from('courses').select('*')
         if (error) {
             throw error;
         } else {
@@ -77,7 +77,7 @@ export default function CoursePage() {
     } else {
         return (
             <>
-                <Navbar />
+              
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
 
                     <div className="flex flex-col lg:flex-row lg:gap-10">
@@ -86,6 +86,7 @@ export default function CoursePage() {
                             <div>
                                 {courses.map(course => (
                                     <h1 key={course.id} className="font-bold text-xl lg:text-4xl">{course.name}</h1>
+                                   
                                 ))}
 
                                 <p className="flex items-center lg:text-2xl"><IoIosAlbums className="mr-1" /> {topics.length} topics <IoMdCreate size={20} className="ml-4" /> {materials.length} Material</p>

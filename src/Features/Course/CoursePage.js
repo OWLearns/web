@@ -30,7 +30,7 @@ export default function CoursePage(){
     }else{
         return (
             <>
-                <Navbar/>
+                {/* <Navbar/> */}
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
 
                     <div className="flex flex-col lg:flex-row lg:gap-10">
