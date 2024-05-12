@@ -17,6 +17,9 @@ import CoursesPage from './Features/Course/CoursesPage';
 import LearnPage from './Features/LearnPage/LearnPage.js';
 import Navbar, {NavbarData }  from './Components/Navbar/Navbar';
 import EditProfile from './Features/EditProfile/EditProfile.js';
+import TopicPage from './Features/Topic/TopicPage.js';
+import MaterialsPage from './Features/Materials/MaterialsPage.js';
+import QuizPage from './Features/QuizPage/QuizPage.js';
 
 
 
@@ -33,38 +36,20 @@ const router = createBrowserRouter(
         <Route/>
         <Route path='/learn'>
           <Route index element={<LearnPage/>}/>
-          <Route path=':course' element={<CoursesPage/>}/>
+          <Route path=':course'>
+            <Route index element={<CoursesPage/>}/>
+            <Route path=':topic'>
+              <Route index element={<TopicPage/>}/>
+              <Route path=':material' element={<MaterialsPage/>}/>
+              <Route path='quiz' element={<QuizPage/>}/>
+            </Route>
+          </Route>
         </Route>
       </Route>
     </Route>
   )
 );
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <HomePage/>
-//   },
-//   {
-//     path: "/login",
-//     element: <LoginPage/>,
-//   },
-//   {
-//     path: "/register",
-//     element: <RegisterPage/>,
-//   },
-//   {
-//     path: "/verification",
-//     element: <VerificationPage/>,
-//   },
-//   {
-//     path: "/profile",
-//     element: <ProfilePage/>,
-//   },
-//   {
-//     path: "/courses",
-//     element: <CoursesPage/>,
-//   },
-// ]);
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

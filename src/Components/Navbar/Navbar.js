@@ -14,7 +14,7 @@ export default function Navbar() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const data = useLoaderData();
     // const data = info.profile[0];
-    console.log(data)
+    // console.log(data)
 
 
     useEffect(() => {

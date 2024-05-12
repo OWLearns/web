@@ -6,13 +6,13 @@ import Community from "../../Assets/community.png"
 import start from "../../Assets/start.png"
 import CheckUserLoggedIn  from "../../Hooks/CheckUser"
 import { useEffect, useState } from "react"
-import Navbar from '../../Components/Navbar/Navbar.js'
 import Footer from '../../Components/Footer/Footer.js'
 import { Link } from "react-router-dom"
 
 export default function LearnPage(){
 
     const [isLoading, setLoading] = useState(true);
+    const [courseData, setCourse] = useState();
 
     useEffect(() => {
         const check = async () => {
@@ -24,6 +24,15 @@ export default function LearnPage(){
             }
         }
         check();
+
+        const a = fetch('https://nodejsdeployowl.et.r.appspot.com/courses')
+        .then((res) => {
+            return res.json();
+        })
+        .then((data) => {
+            // console.log(data.data);
+            setCourse(data.data)
+        });
     }, [])
 
 
@@ -32,7 +41,6 @@ export default function LearnPage(){
     }else{
         return (
             <>
-                {/* <Navbar/> */}
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
                     <div className="lg:flex lg:flex-row-reverse items-center justify-between mt-16">
                         <img src={learn} alt='a' className="mb-8 w-72 mx-auto lg:mx-0 lg:w-96 lg:scale-125"/>
@@ -52,24 +60,24 @@ export default function LearnPage(){
                         <div className="flex flex-col gap-4 mt-4 lg:flex-row lg:mt-16 lg:gap-12">
                             <div className="flex gap-2 lg:gap-12 lg:w-1/2">
                                 <Link className="w-1/2 flex flex-col" to={"/learn/web-development"}>
-                                    <img src={Web} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[1].image} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">Web Development</p>
                                     <p className="text-xs lg:text-sm">Dasar HTML, CSS dan JavaScript untuk pengembangan web</p>
                                 </Link>
                                 <Link className="w-1/2 flex flex-col" to={"/learn/mobile-development"}>
-                                    <img src={Web} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[2].image} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">Mobile Development</p>
                                     <p className="text-xs lg:text-sm">Pengembangan aplikasi responsif untuk Android dan iOS</p>
                                 </Link>
                             </div>      
                             <div className="flex gap-2 lg:gap-12 lg:w-1/2">
                                 <Link className="w-1/2 flex flex-col" to={"/learn/ui-ux"}>
-                                    <img src={Web} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[3].image} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">UI/UX Design </p>
                                     <p className="text-xs lg:text-sm">Mobile Development Pengembangan aplikasi responsif untuk Android dan iOS</p>
                                 </Link>
                                 <Link className="w-1/2 flex flex-col" to={"/learn/project-manager"}>
-                                    <img src={Web} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[0].image} alt="a"/>
                                     <p className="font-semibold text-sm lg:text-lg">Project Manager</p>
                                     <p className="text-xs lg:text-sm">Keterampilan manajemen proyek dengan metodologi Agile</p>
                                 </Link>
@@ -105,3 +113,23 @@ export default function LearnPage(){
 
     
 }
+
+
+// export const FetchLearnData = async () => {
+//     const [data, setData] = useState();
+
+//     try {
+//         fetch('https://nodejsdeployowl.et.r.appspot.com/courses')
+//         .then((res) => {
+//           return res.json();
+//         })
+//         .then((data) => {
+//           console.log(data);
+//           setData(data)
+//         });
+//         return data
+//     } catch (error) {
+//       console.log('error', error);
+//     }
+
+//   }
