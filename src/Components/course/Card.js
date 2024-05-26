@@ -27,7 +27,7 @@ export default function Cards(props) {
           <div className="absolute top-5 left-5"><IoIosCheckmarkCircle color="#00d636" size={30} className="lg:scale-150" /></div>
         )}
         <img src={props.img} className="w-28 lg:w-52 rounded-2xl aspect-square" alt="Material"/>
-        <p>{props.text}</p>
+        <p className="mt-4 lg:text-xl">{props.text}</p>
       </div>
     </button>
     }
@@ -38,7 +38,7 @@ export default function Cards(props) {
           <div className="absolute top-5 left-5"><IoIosCheckmarkCircle color="#00d636" size={30} className="lg:scale-150" /></div>
         )}
         <img src={props.img} className="w-28 lg:w-52 rounded-2xl aspect-square grayscale" alt="Material"/>
-        <p>{props.text}</p>
+        <p className="mt-4 lg:text-xl">{props.text}</p>
       </div>
     </button>
     }

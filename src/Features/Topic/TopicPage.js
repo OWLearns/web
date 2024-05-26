@@ -160,9 +160,9 @@ export default function TopicPage(){
                         <ProgressBar progress={Math.floor((materialsCompleted/2)/materials.length*100)}/>
                         </div>
                     </div>
-                    <div className="mt-12 mb-16">
-                        <h1 className="font-semibold text-xl lg:text-3xl">Daftar Materi</h1>
-                        <div className="flex flex-wrap justify-between gap-4 gap-y-8">
+                    <h1 className="mt-12 font-semibold text-xl lg:text-3xl">Daftar Materi</h1>
+                    <div className="mt-8 mb-16 flex justify-center">
+                        <div className="flex flex-wrap gap-14 gap-y-8">
                             {
                                 materials.map((material)=>(
                                     <Cards canClick={true} matID={material.id} topicID={topics.id} text={material.title} img={coursePic} completed={material.completed} course={course} topic={topic}/>

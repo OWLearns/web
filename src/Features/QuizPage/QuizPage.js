@@ -102,7 +102,6 @@ export default function QuizPage(){
             }
           } catch (error) {
             console.log('error', error);
-            
           }
     }
 

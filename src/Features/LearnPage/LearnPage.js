@@ -75,8 +75,8 @@ export default function LearnPage(){
                                     <div className="flex flex-col">
                                         <p className="text-xs lg:text-sm text-justify">Dasar HTML, CSS dan JavaScript untuk pengembangan web</p>
                                         <div className="flex justify-between">
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[0].total_topics} topics</p>
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[0].total_materials} Material</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[1].total_topics} topics</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[1].total_materials} Material</p>
                                         </div>
                                     </div>
                                 </Link>
@@ -86,8 +86,8 @@ export default function LearnPage(){
                                     <div className="flex flex-col">
                                         <p className="text-xs lg:text-sm text-justify">Pengembangan aplikasi responsif untuk Android dan iOS</p>
                                         <div className="flex justify-between">
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[1].total_topics} topics</p>
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[1].total_materials} Material</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[2].total_topics} topics</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[2].total_materials} Material</p>
                                         </div>
                                     </div>
                                 </Link>
@@ -99,8 +99,8 @@ export default function LearnPage(){
                                     <div className="flex flex-col">
                                         <p className="text-xs lg:text-sm text-justify">Mobile Development Pengembangan aplikasi responsif untuk Android dan iOS</p>
                                         <div className="flex justify-between">
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[2].total_topics} topics</p>
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[2].total_materials} Material</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[3].total_topics} topics</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[3].total_materials} Material</p>
                                         </div>
                                     </div>
                                 </Link>
@@ -110,8 +110,8 @@ export default function LearnPage(){
                                     <div className="flex flex-col">
                                         <p className="text-xs lg:text-sm text-justify">Keterampilan manajemen proyek dengan metodologi Agile</p>
                                         <div className="flex justify-between">
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[3].total_topics} topics</p>
-                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[3].total_materials} Material</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoIosAlbums className="mr-2" /> {courseData[0].total_topics} topics</p>
+                                            <p className="flex items-center text-sm lg:text-lg flex-nowrap text-nowrap"><IoMdCreate size={20} className="" /> {courseData[0].total_materials} Material</p>
                                         </div>
                                     </div>
                                 </Link>

@@ -196,7 +196,9 @@ export default function MaterialsPage(){
         return (
             <>
                 <div className=" p-6 lg:px-32 overflow-hidden">
-                    <Link to={"/learn/" + course + "/" + topic}>back</Link>
+                    <Link to={"/learn/" + course + "/" + topic}>
+                        <button className='text-sm text-center border-2 text-blue-400 border-blue-400 rounded-3xl px-4 py-2 w-fit hover:bg-blue-600 hover:text-white font-bold mb-10'> &lt; back to topic </button>
+                    </Link>
                     {/* material {material} */}
                     <iframe className="w-full min-h-96 transition-all duration-500 focus:aspect-video active:aspect-video" src={"https://www.youtube.com/embed/" + getId(materials.yt_link)}>
                     </iframe>
