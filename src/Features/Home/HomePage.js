@@ -8,27 +8,28 @@ import CheckUserLoggedIn  from "../../Hooks/CheckUser"
 import { useEffect, useState } from "react"
 import Navbar from '../../Components/Navbar/Navbar.js'
 import Footer from '../../Components/Footer/Footer.js'
+import { Link } from "react-router-dom"
 
 export default function TestPage(){
 
-    const [isLoading, setLoading] = useState(true);
+    // const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
-        const check = async () => {
-            const isLoggedIn = await CheckUserLoggedIn();
-            if (isLoggedIn) {
-                setLoading(false);
-            } else {
-                window.location.href = '/login';
-            }
-        }
-        check();
+        // const check = async () => {
+        //     const isLoggedIn = await CheckUserLoggedIn();
+        //     if (isLoggedIn) {
+        //         setLoading(false);
+        //     } else {
+        //         window.location.href = '/login';
+        //     }
+        // }
+        // check();
     }, [])
 
 
-    if(isLoading){
-        return(<>Loading</>)
-    }else{
+    // if(isLoading){
+    //     return(<>Loading</>)
+    // }else{
         return (
             <>
                 {/* <Navbar/> */}
@@ -103,7 +104,7 @@ export default function TestPage(){
                             <p className="text-sm font-medium text-OWL-dark-blue tracking-widest lg:text-xl">MENTOR</p>
                             <p className="text-lg font-semibold leading-5 lg:text-5xl lg:w-4/5">Mentor Kursus Yang Berpengalaman</p>
                             <p className="text-xs font-light lg:text-lg">Mengembangkan keterampilan dari mentor terbaik</p>
-                            <button className="bg-OWL-orange rounded-md text-sm mt-2 px-4 py-2 font-medium self-start lg:text-xl lg:py-3 lg:px8">Start Learning</button>
+                            <Link to={"/login"} className="bg-OWL-orange rounded-md text-sm mt-2 px-4 py-2 font-medium self-start lg:text-xl lg:py-3 lg:px8">Start Learning</Link>
                         </div>
                     </div>
                     <img src={Community} alt="a" className="mt-14 lg:mt-40 lg:mx-auto lg:w-2/3"/>
@@ -111,7 +112,7 @@ export default function TestPage(){
                         <div className="bg-OWL-mid-blue text-white p-5 py-14 pr-20 rounded-3xl mt-5 lg:flex-1 lg:p-20 lg:py-32">
                             <h1 className="text-2xl py-3 font-semibold lg:text-5xl">Start Learning Now!</h1>
                             <p className="text-xs lg:text-xl lg:mt-10 lg:max-w-2xl">Auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar</p>
-                            <button className="bg-OWL-orange text-black rounded-md text-sm mt-6 px-4 py-2 font-medium lg:text-xl lg:py-3 lg:px8 lg:mt-10">Start Learning</button>
+                            <Link to={"/login"}  className="bg-OWL-orange text-black rounded-md text-sm mt-6 px-4 py-2 font-medium lg:text-xl lg:py-3 lg:px8 lg:mt-10">Start Learning</Link>
                         </div>
                         <div className="w-64 relative">
                             <img src={start} className="absolute -top-20 -right-6 lg:right-0 min-w-52 xl:min-w-96"/>
@@ -122,7 +123,7 @@ export default function TestPage(){
 
             </>
         )
-    }
+    // }
 
     
 }

@@ -8,6 +8,7 @@ import ProgressBar from "../../Components/course/ProgressBar.js"
 import { IoMdCreate, IoIosAlbums } from "react-icons/io";
 import SearchBar from "../../Components/SearchBar/SearchBar.js"
 import { useParams } from "react-router-dom"
+import supabase from "../../Middleware/Supabase.js"
 
 export default function CoursePage() {
     const {course} = useParams();
@@ -16,12 +17,13 @@ export default function CoursePage() {
     const [isLoading, setLoading] = useState(true);
     const [courses, setCourses] = useState([]);
     const [topics, setTopics] = useState([]);
+    const [completed, setCompleted] = useState([])
 
     useEffect(() => {
         const check = async () => {
             const isLoggedIn = await CheckUserLoggedIn();
             if (isLoggedIn) {
-                setLoading(false);
+                
             } else {
                 window.location.href = '/login';
             }
@@ -31,6 +33,7 @@ export default function CoursePage() {
 
         fetchCourseData();
         fetchTopics();
+        fetchRecently()
     }, [])
 
     const fetchCourseData = async () => {
@@ -48,15 +51,75 @@ export default function CoursePage() {
     }
     
     const fetchTopics = async () => {
-        fetch('https://nodejsdeployowl.et.r.appspot.com/topics/' + courseId)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            console.log(data.data)
-            setTopics(data.data)
-        });
+        try {
+            const getSession = await supabase.auth.getSession();
+            const access_token = getSession.data.session.access_token;
+            const response = await fetch('https://nodejsdeployowl.et.r.appspot.com/topics/' + courseId, {
+              method: 'POST',
+              body: JSON.stringify({
+                access_token: access_token
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              credentials: 'include',
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data.data)
+                setTopics(data.data)
+                // setLoading(false);
+                // return data;
+            } else {
+                console.log('gagal')
+            }
+          } catch (error) {
+            console.log('error', error);
+            
+          }
     }
+
+    const fetchRecently = async () => {
+        try {
+            const getSession = await supabase.auth.getSession();
+            const access_token = getSession.data.session.access_token;
+            const response = await fetch('https://nodejsdeployowl.et.r.appspot.com/getStudied', {
+              method: 'POST',
+              body: JSON.stringify({
+                access_token: access_token
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              credentials: 'include',
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data.data)
+                console.log(Object.values(data.data))
+                Object.values(data.data).forEach((e)=>{
+                    if(e.id == courseId){
+                        // console.log(e)
+                        setCompleted(e.completed_materials)
+                    }
+                    // console.log(e.completed_materials)
+                })
+                
+                // setRecently(data.data)
+                // setTopics(data.data)
+                setLoading(false);
+                // setLoading(false);
+                // return data;
+            } else {
+                console.log('gagal')
+            }
+          } catch (error) {
+            console.log('error', error);
+            
+          }
+    }
+
+    
 
     if (isLoading) {
         return (<>Loading</>)
@@ -74,10 +137,10 @@ export default function CoursePage() {
                             </div>
                             <div className="mt-3 text-gray-700 lg:text-xl">
                                 <p>Your journey</p>
-                                <ProgressBar progress="80" />
+                                <ProgressBar progress={Math.floor(completed/courses.total_materials * 100)} />
                             </div>
                             <div className="mt-4 lg:text-xl">
-                                <p className="font-semibold">Jump to the recently studied</p>
+                                {/* <p className="font-semibold">Jump to the recently studied</p>
                                 <div className="border-2 border-gray-300 rounded-md p-2 mt-2 flex gap-3 lg:p-6">
                                     <img src={code} className="aspect-square h-16 rounded-md lg:h-24" />
                                     <div className="lg:w-full lg:flex lg:flex-col lg:justify-around">
@@ -88,7 +151,7 @@ export default function CoursePage() {
                                         <p className="flex items-center text-sm"><IoMdCreate size={20} className="mr-2" /> Material</p>
                                         <ProgressBar progress="69" />
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

@@ -11,6 +11,8 @@ import Footer from '../../Components/Footer/Footer.js'
 import { Link,useParams } from "react-router-dom"
 import { IoIosAlbums, IoMdCreate } from "react-icons/io"
 import ProgressBar from "../../Components/course/ProgressBar.js"
+import supabase from "../../Middleware/Supabase.js"
+import coursePic from "../../Assets/coursePic.png"
 
 export default function TopicPage(){
     const {course} = useParams();
@@ -19,15 +21,16 @@ export default function TopicPage(){
 
     const [isLoading, setLoading] = useState(true);
     const [materials, setMaterials] = useState([]);
+    const [materialsCompleted, setMaterialsCompleted] = useState(0);
     const [topics, setTopics] = useState();
 
-    // console.log(materials)
+    console.log(materialsCompleted)
 
     useEffect(() => {
         const check = async () => {
             const isLoggedIn = await CheckUserLoggedIn();
             if (isLoggedIn) {
-                setLoading(false);
+                
             } else {
                 window.location.href = '/login';
             }
@@ -38,38 +41,96 @@ export default function TopicPage(){
     }, [])
     
     useEffect(() => {
-        topics?fetchMaterials():
-        console.log(topics)
+        if(topics){
+            fetchMaterials();
+        }
     }, [topics])
     
 
+       
     const fetchTopics = async () => {
-        fetch('https://nodejsdeployowl.et.r.appspot.com/topics/' + courseId)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            console.log(data.data)
-            for (const a of data.data) {
-                if(a.name.replace(/\s+/g, '-').toLowerCase() == topic){
-                    setTopics(a)
-                    console.log(a)
+        try {
+            const getSession = await supabase.auth.getSession();
+            const access_token = getSession.data.session.access_token;
+            const response = await fetch('https://nodejsdeployowl.et.r.appspot.com/topics/' + courseId, {
+              method: 'POST',
+              body: JSON.stringify({
+                access_token: access_token
+              }),
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              credentials: 'include',
+            });
+            if (response.ok) {
+                const data = await response.json();
+                // console.log(data.data)
+                // setTopics(data.data)
+                // console.log(data.data)
+                for (const a of data.data) {
+                    if(a.name.replace(/\s+/g, '-').toLowerCase() == topic){
+                        setTopics(a)
+                        // console.log(a)
+                    }
                 }
+                // setLoading(false);
+                // return data;
+            } else {
+                console.log('gagal')
             }
-            // setTopics(data.data)
-        });
+          } catch (error) {
+            console.log('error', error);
+            
+          }
     }
 
     const fetchMaterials = async () => {
+        console.log(topics.id)
+        // fetch('https://nodejsdeployowl.et.r.appspot.com/materials/' + topics.id)
+        // .then((res) => {
+        //     return res.json();
+        // })
+        // .then((data) => {
+        //     setMaterials(data.data)
+        //     console.log(data.data)
+        //     setLoading(false);
+        // });
 
-        fetch('https://nodejsdeployowl.et.r.appspot.com/materials/' + topics.id)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            setMaterials(data.data)
-            // console.log(data.data)
-        });
+        try {
+            const getSession = await supabase.auth.getSession();
+            const access_token = getSession.data.session.access_token;
+            const response = await fetch('https://nodejsdeployowl.et.r.appspot.com/materials', {
+                method: 'POST',
+                body: JSON.stringify({
+                    access_token: access_token,
+                    topic_id : topics.id,
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data.data);
+                setMaterials(data.data)
+                for (const a of data.data) {
+                    if(a.completed){
+                        console.log(a.completed)
+                        setMaterialsCompleted((prev) => prev+1)
+                    }
+                }
+                // setQuestions(data.data)
+                // setLoading(false);
+                // return data;
+                setLoading(false);
+            } else {
+                console.log('gagal')
+            }
+        } catch (error) {
+            console.log('error', error);
+            
+        }
     }
 
 
@@ -83,11 +144,12 @@ export default function TopicPage(){
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
                     <div className="mt-10">
                         <h1 className="font-bold text-xl lg:text-4xl">{topics?topics.name:""}</h1>
-                        <p className="flex items-center lg:text-2xl mt-1"><IoMdCreate size={20} /> 5 Material</p>
+                        <Link to={"/learn/" + course} className="text-xl font-semibold">{course.replace('-', " ")}</Link>
+                        <p className="flex items-center lg:text-2xl mt-1"><IoMdCreate size={20} /> {materials.length} Material</p>
                     </div>
                     <div className="mt-8 text-gray-700 lg:text-xl w-1/2">
                         <p>Your journey</p>
-                        <ProgressBar progress="80" />
+                        <ProgressBar progress={Math.floor((materialsCompleted/2)/materials.length*100)} />
                         <div className="mt-8">
                             <SearchBar />
                         </div>
@@ -97,9 +159,10 @@ export default function TopicPage(){
                         <div className="flex flex-wrap justify-between gap-4 gap-y-8">
                             {
                                 materials.map((material)=>(
-                                    <Cards text={material.title} img={material.image} course={course} topic={topic}/>
+                                    <Cards canClick={true} matID={material.id} topicID={topics.id} text={material.title} img={coursePic} completed={material.completed} course={course} topic={topic}/>
                                 ))
-                            }
+                            }   
+                            <Cards text={"quiz"} canClick={topics.quizAvailable} img={coursePic} course={course} topic={topic}/>
                         </div>
                     </div>
                 </div>
