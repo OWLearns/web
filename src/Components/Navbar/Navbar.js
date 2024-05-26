@@ -73,11 +73,11 @@ export default function Navbar() {
                 </div>
             </div>
             <div className="absolute h-full w-full top-0 left-0 bg-OWL-base -z-10 overflow-hidden">
-                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -right-60" style={{top: "-500px"}}/>
-                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -left-60" style={{top: "500px"}}/>
-                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -right-60" style={{top: "1500px"}}/>
-                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -left-60" style={{top: "2500px"}}/>
-                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -right-60" style={{top: "3500px"}}/>
+                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -right-full lg:-right-60" style={{top: "-500px"}}/>
+                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -left-full lg:-left-60" style={{top: "500px"}}/>
+                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -right-full lg:-right-60" style={{top: "1500px"}}/>
+                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -left-full lg:-left-60" style={{top: "2500px"}}/>
+                <div className="absolute bg-OWL-light-blue rounded-full aspect-square blob -right-full lg:-right-60" style={{top: "3500px"}}/>
             </div>
             <Outlet/>
         </>
