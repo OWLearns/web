@@ -1,3 +1,4 @@
+import loading from "../../Assets/loading.svg"
 import learn from "../../Assets/learn.png"
 import Web from "../../Assets/web.png"
 import SearchBar from "../../Components/SearchBar/SearchBar"
@@ -37,7 +38,13 @@ export default function LearnPage(){
 
 
     if(isLoading){
-        return(<>Loading</>)
+        return (
+            <>
+                <div className="absolute top-0 left-0 z-0 w-full h-screen grid place-items-center  bg-OWL-base">
+                    <img src={loading} className="w-44 lg:w-72 aspect-square"/>
+                </div>
+            </>
+            )
     }else{
         return (
             <>
@@ -53,31 +60,31 @@ export default function LearnPage(){
                             </div>
                         </div>
                     </div>
-                    <div className="mt-14 flex flex-col lg:mt-40 lg:items-center">
+                    <div className="mt-14 flex flex-col lg:mt-40 lg:items-center" id="course">
                         <p className="font-medium text-OWL-dark-blue tracking-widest lg:font-semibold">COURSE</p>
                         <p className="font-bold text-lg lg:text-5xl mt-2">Full-Stack Mastery</p>
                         <p className="font-normal text-xs lg:mt-2 lg:text-xl">Dari Pengembangan Web hingga Applikasi Mobile, Desain UI/UX, dan Manajemen Proyek</p>
                         <div className="flex flex-col gap-4 mt-4 lg:flex-row lg:mt-16 lg:gap-12">
                             <div className="flex gap-2 lg:gap-12 lg:w-1/2">
                                 <Link className="w-1/2 flex flex-col" to={"/learn/web-development"}>
-                                    <img src={courseData == undefined? Web : courseData[1].image} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[1].image} alt="a" className="rounded-2xl"/>
                                     <p className="font-semibold text-sm lg:text-lg">Web Development</p>
                                     <p className="text-xs lg:text-sm">Dasar HTML, CSS dan JavaScript untuk pengembangan web</p>
                                 </Link>
                                 <Link className="w-1/2 flex flex-col" to={"/learn/mobile-development"}>
-                                    <img src={courseData == undefined? Web : courseData[2].image} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[2].image} alt="a" className="rounded-2xl"/>
                                     <p className="font-semibold text-sm lg:text-lg">Mobile Development</p>
                                     <p className="text-xs lg:text-sm">Pengembangan aplikasi responsif untuk Android dan iOS</p>
                                 </Link>
                             </div>      
                             <div className="flex gap-2 lg:gap-12 lg:w-1/2">
                                 <Link className="w-1/2 flex flex-col" to={"/learn/ui-ux"}>
-                                    <img src={courseData == undefined? Web : courseData[3].image} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[3].image} alt="a" className="rounded-2xl"/>
                                     <p className="font-semibold text-sm lg:text-lg">UI/UX Design </p>
                                     <p className="text-xs lg:text-sm">Mobile Development Pengembangan aplikasi responsif untuk Android dan iOS</p>
                                 </Link>
                                 <Link className="w-1/2 flex flex-col" to={"/learn/project-manager"}>
-                                    <img src={courseData == undefined? Web : courseData[0].image} alt="a"/>
+                                    <img src={courseData == undefined? Web : courseData[0].image} alt="a" className="rounded-2xl"/>
                                     <p className="font-semibold text-sm lg:text-lg">Project Manager</p>
                                     <p className="text-xs lg:text-sm">Keterampilan manajemen proyek dengan metodologi Agile</p>
                                 </Link>
@@ -90,15 +97,14 @@ export default function LearnPage(){
                             <p className="text-sm font-medium text-OWL-dark-blue tracking-widest lg:text-xl">MENTOR</p>
                             <p className="text-lg font-semibold leading-5 lg:text-5xl lg:w-4/5">Mentor Kursus Yang Berpengalaman</p>
                             <p className="text-xs font-light lg:text-lg">Mengembangkan keterampilan dari mentor terbaik</p>
-                            <button className="bg-OWL-orange rounded-md text-sm mt-2 px-4 py-2 font-medium self-start lg:text-xl lg:py-3 lg:px8">Start Learning</button>
+                            <button className="bg-OWL-orange rounded-md text-sm mt-2 px-4 py-2 font-medium self-start lg:text-xl lg:py-3 lg:px8"><a href="#course">Choose A Course</a></button>
                         </div>
                     </div>
-                    <img src={Community} alt="a" className="mt-14 lg:mt-40 lg:mx-auto lg:w-2/3"/>
                     <div className="flex justify-between mt-20 lg:mt-60">
                         <div className="bg-OWL-mid-blue text-white p-5 py-14 pr-20 rounded-3xl mt-5 lg:flex-1 lg:p-20 lg:py-32">
                             <h1 className="text-2xl py-3 font-semibold lg:text-5xl">Start Learning Now!</h1>
                             <p className="text-xs lg:text-xl lg:mt-10 lg:max-w-2xl">Auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar</p>
-                            <button className="bg-OWL-orange text-black rounded-md text-sm mt-6 px-4 py-2 font-medium lg:text-xl lg:py-3 lg:px8 lg:mt-10">Start Learning</button>
+                            <button className="bg-OWL-orange text-black rounded-md text-sm mt-6 px-4 py-2 font-medium lg:text-xl lg:py-3 lg:px8 lg:mt-10"><a href="#course">Choose A Course</a></button>
                         </div>
                         <div className="w-64 relative">
                             <img src={start} className="absolute -top-20 -right-6 lg:right-0 min-w-52 xl:min-w-96"/>

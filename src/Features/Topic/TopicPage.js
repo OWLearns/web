@@ -1,3 +1,4 @@
+import loading from "../../Assets/loading.svg"
 import learn from "../../Assets/learn.png"
 import Web from "../../Assets/web.png"
 import SearchBar from "../../Components/SearchBar/SearchBar"
@@ -137,25 +138,30 @@ export default function TopicPage(){
 
 
     if(isLoading){
-        return(<>Loading</>)
+        return (
+            <>
+                <div className="absolute top-0 left-0 z-0 w-full h-screen grid place-items-center  bg-OWL-base">
+                    <img src={loading} className="w-44 lg:w-72 aspect-square"/>
+                </div>
+            </>
+            )
     }else{
         return (
             <>
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
-                    <div className="mt-10">
+                    <div className="mt-10 flex flex-col justify-center items-center">
                         <h1 className="font-bold text-xl lg:text-4xl">{topics?topics.name:""}</h1>
-                        <Link to={"/learn/" + course} className="text-xl font-semibold">{course.replace('-', " ")}</Link>
+                        <Link to={"/learn/" + course} className="text-md lg:text-xl">{course.replace('-', " ")}</Link>
                         <p className="flex items-center lg:text-2xl mt-1"><IoMdCreate size={20} /> {materials.length} Material</p>
                     </div>
-                    <div className="mt-8 text-gray-700 lg:text-xl w-1/2">
+                    <div className="mt-8 text-gray-700 lg:text-xl text-center px-10">
                         <p>Your journey</p>
-                        <ProgressBar progress={Math.floor((materialsCompleted/2)/materials.length*100)} />
-                        <div className="mt-8">
-                            <SearchBar />
+                        <div className="translate-x-3">
+                        <ProgressBar progress={Math.floor((materialsCompleted/2)/materials.length*100)}/>
                         </div>
                     </div>
-                    <div className="mt-24">
-                        <h1 className="font-semibold text-l lg:text-3xl">Daftar Materi</h1>
+                    <div className="mt-12 mb-16">
+                        <h1 className="font-semibold text-xl lg:text-3xl">Daftar Materi</h1>
                         <div className="flex flex-wrap justify-between gap-4 gap-y-8">
                             {
                                 materials.map((material)=>(

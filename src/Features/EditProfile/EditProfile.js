@@ -1,3 +1,4 @@
+import loading from "../../Assets/loading.svg"
 import React, { useEffect, useState, useRef } from 'react';
 import { useLoaderData, Link } from 'react-router-dom';
 import CheckUserLoggedIn from '../../Hooks/CheckUser';
@@ -108,6 +109,10 @@ export default function EditProfile() {
             
             const responseData = await response.json();
             console.log(responseData);
+            console.log({access_token: access_token,
+                avatar: imagePreview,
+                username: formData.username,
+                biodata: formData.biodata,})
             window.location.href = '/profile'
             
         } catch (error) {
@@ -131,20 +136,26 @@ export default function EditProfile() {
 
 
     if (isLoading) {
-        return <>Loading</>;
+        return (
+            <>
+                <div className="absolute top-0 left-0 z-0 w-full h-screen grid place-items-center  bg-OWL-base">
+                    <img src={loading} className="w-44 lg:w-72 aspect-square"/>
+                </div>
+            </>
+            )
     } else {
         return (
             <>
                 <div className="bg-OWL-base p-6 lg:px-24 xl:px-44">
                     <div className="lg:mt-20 xl:p-32 py-16 lg:py-20 relative">
-                        <div className="absolute bg-gradient-to-br from-OWL-dark-blue to-OWL-mid-blue w-full top-0 left-0 h-28 lg:h-56 xl:h-72 rounded-3xl  " />
+                        <div className="absolute bg-gradient-to-br from-OWL-dark-blue to-OWL-mid-blue w-full top-0 left-0 h-36 lg:h-56 xl:h-72 rounded-3xl  " />
                         <div className="z-10 relative flex justify-around xl:justify-between gap-4 pt-2">
                             <div className="" onClick={handleImageClick}>
                                 {imagePreview ? (
-                                    <img src={URL.createObjectURL(imagePreview)} className="rounded-full lg:w-52 border-4 border-OWL-base aspect-square" />
+                                    <img src={URL.createObjectURL(imagePreview)} className="rounded-full w-28 lg:w-52 border-4 border-OWL-base aspect-square" />
                                 ) : (
 
-                                    <img src={data.profile.user.avatar == null ? profileBlank : data.profile.user.avatar} className="rounded-full lg:w-52 border-4 border-OWL-base aspect-square" />
+                                    <img src={data.profile.user.avatar == null ? profileBlank : data.profile.user.avatar} className="rounded-full w-28 lg:w-52 border-4 border-OWL-base aspect-square" />
                                 )}
 
                                 <input type="file" ref={inputRef} onChange={handleImageChange} style={{ display: 'none' }} />

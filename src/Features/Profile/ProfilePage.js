@@ -1,3 +1,4 @@
+import loading from "../../Assets/loading.svg"
 import CheckUserLoggedIn from "../../Hooks/CheckUser";
 import { useEffect, useState } from "react";
 import Navbar from '../../Components/Navbar/Navbar.js';
@@ -76,7 +77,13 @@ export default function ProfilePage() {
 
 
     if (isLoading) {
-        return <>Loading</>;
+        return (
+            <>
+                <div className="absolute top-0 left-0 z-0 w-full h-screen grid place-items-center  bg-OWL-base">
+                    <img src={loading} className="w-44 lg:w-72 aspect-square"/>
+                </div>
+            </>
+            )
     } else {
         return (
             <>

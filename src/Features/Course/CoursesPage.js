@@ -1,3 +1,4 @@
+import loading from "../../Assets/loading.svg"
 import CheckUserLoggedIn from "../../Hooks/CheckUser"
 import { useEffect, useState } from "react"
 import Web from "../../Assets/web.png"
@@ -122,21 +123,27 @@ export default function CoursePage() {
     
 
     if (isLoading) {
-        return (<>Loading</>)
+        return (
+        <>
+            <div className="absolute top-0 left-0 z-0 w-full h-screen grid place-items-center  bg-OWL-base">
+                <img src={loading} className="w-44 lg:w-72 aspect-square"/>
+            </div>
+        </>
+        )
     } else {
         return (
             <>
                 <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
 
-                    <div className="flex flex-col lg:flex-row lg:gap-10">
-                        <img src={courses.image} className="w-60 self-center aspect-square lg:w-2/5" />
+                    <div className="flex flex-col lg:flex-row lg:gap-10 lg:px-10">
+                        <img src={courses.image} className="w-60 self-center aspect-square lg:w-1/4 rounded-xl" />
                         <div className="lg:flex lg:flex-col lg:justify-center gap-4 lg:w-full">
-                            <div>
+                            <div className="flex flex-col justify-center items-center lg:items-start">
                                 <h1 key={courses.id} className="font-bold text-xl lg:text-4xl">{courses.name}</h1>
                                 <p className="flex items-center lg:text-2xl"><IoIosAlbums className="mr-1" /> {courses.total_topics} topics <IoMdCreate size={20} className="ml-4" /> {courses.total_materials} Material</p>
                             </div>
-                            <div className="mt-3 text-gray-700 lg:text-xl">
-                                <p>Your journey</p>
+                            <div className="mt-6 text-gray-700 lg:text-xl">
+                                <p className="text-center lg:text-start">Your journey</p>
                                 <ProgressBar progress={Math.floor(completed/courses.total_materials * 100)} />
                             </div>
                             <div className="mt-4 lg:text-xl">
@@ -156,12 +163,12 @@ export default function CoursePage() {
                         </div>
                     </div>
 
-                    <div className="mt-10 lg:mt-20">
-                        <p className="text-center text-sm lg:text-xl">Web Develompent</p>
+                    <div className="mt-4 lg:mt-10">
+                        <p className="text-center text-sm lg:text-xl">{courses.name}</p>
                         <h1 className="text-center font-bold mb-10 tracking-widest text-lg lg:text-4xl">Learning Path</h1>
-                        <div className="w-auto lg:w-3/5 mx-auto">
+                        {/* <div className="w-auto lg:w-3/5 mx-auto">
                             <SearchBar />
-                        </div>
+                        </div> */}
                     </div>
 
 

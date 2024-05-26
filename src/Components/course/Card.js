@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../app";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 
 export default function Cards(props) {
   const [materialID, setMaterialID] = useContext(Context);
@@ -23,7 +24,7 @@ export default function Cards(props) {
     <button onClick={(handleClick)}>
       <div className="h-full bg-white border-2 border-gray-400 font-semibold rounded-2xl p-4 lg:p-10 relative w-36 lg:w-72">
         {props.completed && (
-          <div className="absolute top-0 left-0">completed</div>
+          <div className="absolute top-5 left-5"><IoIosCheckmarkCircle color="#00d636" size={30} className="lg:scale-150" /></div>
         )}
         <img src={props.img} className="w-28 lg:w-52 rounded-2xl aspect-square" alt="Material"/>
         <p>{props.text}</p>
@@ -34,7 +35,7 @@ export default function Cards(props) {
     <button className="cursor-default">
       <div className="h-full bg-white border-2 border-gray-400 font-semibold rounded-2xl p-4 lg:p-10 relative  w-36 lg:w-72">
         {props.completed && (
-          <div className="absolute top-0 left-0">completed</div>
+          <div className="absolute top-5 left-5"><IoIosCheckmarkCircle color="#00d636" size={30} className="lg:scale-150" /></div>
         )}
         <img src={props.img} className="w-28 lg:w-52 rounded-2xl aspect-square grayscale" alt="Material"/>
         <p>{props.text}</p>

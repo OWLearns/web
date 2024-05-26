@@ -58,9 +58,12 @@ export default function TopicMaterials(props) {
 
         return (
             <>
-                <div className="mt-32">
+                <div className="mt-12 mb-16 lg:mt-20">
+                    <div className="flex justify-between items-center mb-6">
                     <h1 className="text-xl font-bold lg:text-3xl">{props.name}</h1>
-                    <div className="flex flex-col lg:flex-col-reverse mt-8 lg:mt-0">
+                    <Link to={"/learn/" + props.link + "/" + props.name.replace(/\s+/g, '-').toLowerCase() } className="lg:mt-0 lg:mb-0 bg-OWL-mid-blue text-white font-semibold text-sm p-2 px-4 rounded-lg lg:text-xl">See More</Link>
+                    </div>
+                    {/* <div className="flex flex-col lg:flex-col-reverse mt-8 lg:mt-0"> */}
                         <div className="flex flex-wrap justify-evenly gap-4 gap-y-8">
                             {
                                 materials.map((material , index)=>(
@@ -68,8 +71,7 @@ export default function TopicMaterials(props) {
                                 ))
                             }
                         </div>
-                        <Link to={"/learn/" + props.link + "/" + props.name.replace(/\s+/g, '-').toLowerCase() } className="self-start lg:self-end mt-8 lg:mt-0 lg:mb-0 lg:-translate-y-full bg-OWL-mid-blue text-white font-semibold text-sm p-2 px-4 rounded-lg lg:text-xl">See More</Link>
-                    </div>
+                    {/* </div> */}
                 </div>
             </>
         )
