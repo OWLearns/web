@@ -188,7 +188,7 @@ export default function QuizPage(){
                 {!topics.quizAvailable &&
                     <Navigate to={"/learn/" + course + "/" + topic} replace={true} />
                 }
-                <div className="bg-OWL-base p-6 lg:px-32 overflow-hidden grid place-items-center h-screen">
+                <div className=" p-6 lg:px-32 overflow-hidden grid place-items-center h-screen">
                     <div className="-translate-y-20 flex flex-col justify-center items-center p-4 rounded-xl border-2 border-gray-500 bg-white w-72 lg:w-96">
                         <h1 className="font-bold text-2xl">QUIZ</h1>
                         <p className="text-center mt-4">Test Your Knowledge in this quiz! answer each question correctly to get a high score and pass the quiz!</p>

@@ -54,7 +54,7 @@ export default function Leaderboard() {
     } else {
         return (
             <>
-                <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden pb-32">
+                <div className="p-6 lg:px-24 overflow-hidden pb-32">
                     <h1 className="font-bold text-2xl text-center mb-10 md:text-4xl">Leaderboard</h1>
                     <div className="flex flex-col gap-4 md:px-10 lg:px-32 xl:px-56">
                         {

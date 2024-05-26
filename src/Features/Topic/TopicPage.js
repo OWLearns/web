@@ -148,7 +148,7 @@ export default function TopicPage(){
     }else{
         return (
             <>
-                <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
+                <div className=" p-6 lg:px-24 overflow-hidden">
                     <div className="mt-10 flex flex-col justify-center items-center">
                         <h1 className="font-bold text-xl lg:text-4xl">{topics?topics.name:""}</h1>
                         <Link to={"/learn/" + course} className="text-md lg:text-xl">{course.replace('-', " ")}</Link>

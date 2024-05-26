@@ -133,7 +133,7 @@ export default function CoursePage() {
     } else {
         return (
             <>
-                <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
+                <div className=" p-6 lg:px-24 overflow-hidden">
 
                     <div className="flex flex-col lg:flex-row lg:gap-10 lg:px-10">
                         <img src={courses.image} className="w-60 self-center aspect-square lg:w-1/4 rounded-xl" />

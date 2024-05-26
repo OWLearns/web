@@ -33,7 +33,7 @@ export default function TestPage(){
         return (
             <>
                 {/* <Navbar/> */}
-                <div className="bg-OWL-base p-6 lg:px-24 overflow-hidden">
+                <div className=" p-6 lg:px-24 overflow-hidden">
                     <div className="lg:flex lg:flex-row-reverse items-center justify-between mt-16">
                         <img src={illustration} alt='a' className="mb-8 w-72 mx-auto lg:mx-0 lg:w-96 lg:scale-125"/>
                         <div className="lg:w-1/2">
@@ -111,7 +111,7 @@ export default function TestPage(){
                     <div className="flex justify-between mt-20 lg:mt-60">
                         <div className="bg-OWL-mid-blue text-white p-5 py-14 pr-20 rounded-3xl mt-5 lg:flex-1 lg:p-20 lg:py-32">
                             <h1 className="text-2xl py-3 font-semibold lg:text-5xl">Start Learning Now!</h1>
-                            <p className="text-xs lg:text-xl lg:mt-10 lg:max-w-2xl">Auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar</p>
+                            <p className="text-xs lg:text-xl lg:mt-10 lg:max-w-2xl mb-4">Auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar</p>
                             <Link to={"/login"}  className="bg-OWL-orange text-black rounded-md text-sm mt-6 px-4 py-2 font-medium lg:text-xl lg:py-3 lg:px8 lg:mt-10">Start Learning</Link>
                         </div>
                         <div className="w-64 relative">

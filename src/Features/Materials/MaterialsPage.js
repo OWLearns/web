@@ -195,7 +195,7 @@ export default function MaterialsPage(){
     }else{
         return (
             <>
-                <div className="bg-OWL-base p-6 lg:px-32 overflow-hidden">
+                <div className=" p-6 lg:px-32 overflow-hidden">
                     <Link to={"/learn/" + course + "/" + topic}>back</Link>
                     {/* material {material} */}
                     <iframe className="w-full min-h-96 transition-all duration-500 focus:aspect-video active:aspect-video" src={"https://www.youtube.com/embed/" + getId(materials.yt_link)}>
